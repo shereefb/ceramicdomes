@@ -39,9 +39,9 @@ $(document).ready(function () {
     bind_shrink_header();
 
       // Create an instance of the Stripe object with your publishable API key
-      var stripe = Stripe('pk_test_51Hvrq6FL3dvoEEzNoSvnuhoWKV0rJumA0HNFFKVz1nrMoc5IW7UNvMQRl0NKFYUU5IhNdZxe9b1QSxH0AtpBPYr900YmgScd7P');
+    //   var stripe = Stripe('pk_test_51Hvrq6FL3dvoEEzNoSvnuhoWKV0rJumA0HNFFKVz1nrMoc5IW7UNvMQRl0NKFYUU5IhNdZxe9b1QSxH0AtpBPYr900YmgScd7P');
 
-    //   var stripe = Stripe('pk_live_51Hvrq6FL3dvoEEzNSghs114g4KapZ4XVAUWcKWs7wKZE5LDpZWlCyNfbLGAJHaLvZORzkwLcKzFoweyfx0PNq5T200uMB2en19');
+      var stripe = Stripe('pk_live_51Hvrq6FL3dvoEEzNSghs114g4KapZ4XVAUWcKWs7wKZE5LDpZWlCyNfbLGAJHaLvZORzkwLcKzFoweyfx0PNq5T200uMB2en19');
 
         $(document).on('click', '.btn-medium', function (event) { 
             fetch('/create-checkout-session', {
