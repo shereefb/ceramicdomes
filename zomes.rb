@@ -8,6 +8,12 @@ require 'sinatra/reloader' if development?
 require 'json'
 require 'stripe'
 
+require 'rack/ssl'
+
+if ENV['RACK_ENV'] == 'production'
+   use Rack::SSL
+end
+
 # Stripe.api_key = 'sk_test_51Hvrq6FL3dvoEEzNMONG5pJfaWdk1ApKrlbZnqusrJe4T5gjiiy4JF19mF8XHZihxEgyq13dyZmHVgcgZMbfOg7Q00fe7QEUtn'
 
 Stripe.api_key = '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'

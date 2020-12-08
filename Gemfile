@@ -7,4 +7,5 @@ gem "sinatra-reloader"
 gem "puma"
 gem "stripe"
 gem "json"
+gem "rack-ssl"
 

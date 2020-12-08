@@ -11,6 +11,8 @@ GEM
     rack (2.2.3)
     rack-protection (2.1.0)
       rack
+    rack-ssl (1.4.1)
+      rack
     ruby2_keywords (0.0.2)
     sinatra (2.1.0)
       mustermann (~> 1.0)
@@ -34,6 +36,7 @@ PLATFORMS
 DEPENDENCIES
   json
   puma
+  rack-ssl
   sinatra
   sinatra-reloader
   stripe
