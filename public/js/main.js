@@ -67,6 +67,16 @@ $(document).ready(function () {
     
         });
 
+        $(document).on('click', '#stay-informed', function (event) { 
+            fetch('/subscribe', {
+                method: 'POST',
+                body: '{"email": "karim@zomes.com"}'
+              })
+              .catch(function(error) {
+                console.error('Error:', error);
+              })
+        });
+
       
       
     var isMobile = false;

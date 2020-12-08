@@ -7,6 +7,7 @@ require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'json'
 require 'stripe'
+require 'gibbon'
 
 require 'rack/ssl'
 
@@ -22,6 +23,11 @@ get '/' do
     File.read(File.join('public', 'index.html'))
 end
 
+
+post '/subscribe' do 
+  gibbon = Gibbon::Request.new(api_key: "37cae97ce55a857f853f0582299a8293-us7")
+  gibbon.lists("1f60b21655").members.create(body: {email_address: "foo@bar.com", status: "subscribed", merge_fields: {FNAME: "Bob", LNAME: "Smith"}})
+end
 
 post '/create-checkout-session' do
   session = Stripe::Checkout::Session.create({
