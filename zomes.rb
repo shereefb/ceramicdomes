@@ -37,7 +37,7 @@ post '/create-checkout-session' do
     #
     # Later on in the guide, you'll create a real success page, but no need to
     # do it yet.
-    success_url: 'http://www.zomes.com/public/success.html',
+    success_url: 'http://www.zomes.com/success.html',
     cancel_url: 'http://www.zomes.com/#pricing-table7',
   })
 
