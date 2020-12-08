@@ -26,7 +26,7 @@ post '/create-checkout-session' do
         product_data: {
           name: 'Zome Pre-order',
           description: 'Reserve your spot in our productin line. Right now, we are shipping orders 6 weeks out. Once you pre-order, we will be in touch within 48 hours to schedule production and delivery. Pre-orders are fully refundable.' ,
-          images: ['http://zomes.com/public/images/uploads/hires/R1_1.jpg']
+          images: ['http://www.zomes.com/public/images/uploads/hires/R1_2.jpg']
         },
         unit_amount: 100000,
       },
@@ -37,8 +37,8 @@ post '/create-checkout-session' do
     #
     # Later on in the guide, you'll create a real success page, but no need to
     # do it yet.
-    success_url: 'http://zomes.com/public/success.html',
-    cancel_url: 'http://zomes.com/#pricing-table7',
+    success_url: 'http://www.zomes.com/public/success.html',
+    cancel_url: 'http://www.zomes.com/#pricing-table7',
   })
 
   { id: session.id }.to_json
