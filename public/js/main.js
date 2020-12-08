@@ -67,15 +67,15 @@ $(document).ready(function () {
     
         });
 
-        $(document).on('click', '#stay-informed', function (event) { 
-            fetch('/subscribe', {
-                method: 'POST',
-                body: '{"email": "karim@zomes.com"}'
-              })
-              .catch(function(error) {
-                console.error('Error:', error);
-              })
-        });
+        // $(document).on('click', '#stay-informed', function (event) { 
+        //     fetch('/subscribe', {
+        //         method: 'POST',
+        //         body: '{"email": "karim@zomes.com"}'
+        //       })
+        //       .catch(function(error) {
+        //         console.error('Error:', error);
+        //       })
+        // });
 
       
       
@@ -386,7 +386,9 @@ $(document).ready(function () {
         if (tz_process) 
         {
             localStorage.setItem('tz_section',section_id);
-            $.post("tz_mail/contact.php", {
+            console.log(name_attr);
+            console.log(values);
+            $.post("subscribe", {
                 data: { input_name: name_attr,values:values,section_id:section_id},
                 type: "POST",
             }, function (data) {
@@ -394,6 +396,7 @@ $(document).ready(function () {
                 var tz_form_output = '';
                 if(data) 
                 {
+                    console.log(data);
                     if(data.type == "tz_message") 
                     {
                        $('#error').remove(); 

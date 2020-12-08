@@ -15,6 +15,10 @@ if ENV['RACK_ENV'] == 'production'
    use Rack::SSL
 end
 
+configure :development do
+  set :logging, Logger::DEBUG
+end
+
 # Stripe.api_key = 'sk_test_51Hvrq6FL3dvoEEzNMONG5pJfaWdk1ApKrlbZnqusrJe4T5gjiiy4JF19mF8XHZihxEgyq13dyZmHVgcgZMbfOg7Q00fe7QEUtn'
 
 Stripe.api_key = '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'
@@ -26,7 +30,13 @@ end
 
 post '/subscribe' do 
   gibbon = Gibbon::Request.new(api_key: "37cae97ce55a857f853f0582299a8293-us7")
-  gibbon.lists("1f60b21655").members.create(body: {email_address: "foo@bar.com", status: "subscribed", merge_fields: {FNAME: "Bob", LNAME: "Smith"}})
+  begin
+  gibbon.lists("1f60b21655").members.create(body: {email_address: params["data"]["values"][0], status: "subscribed", merge_fields: {FNAME: "", LNAME: ""}})
+    { type: "tz_message", text: "Thanks! We'll stay in touch." }.to_json
+  rescue
+    { type: "tz_error", text: "Something went wrong :/" }.to_json
+  end
+  
 end
 
 post '/create-checkout-session' do
